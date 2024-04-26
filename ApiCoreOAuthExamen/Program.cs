@@ -5,11 +5,15 @@ using ApiCoreOAuthExamen.Repositories;
 using ApiCoreOAuthExamen.Data;
 using Microsoft.EntityFrameworkCore;
 using Azure.Security.KeyVault.Secrets;
+using Microsoft.Extensions.Azure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddAzureClients(factory =>
+{
+    factory.AddSecretClient(builder.Configuration.GetSection("KeyVault"));
+});
 
 SecretClient secretClient = builder.Services.BuildServiceProvider().GetService<SecretClient>();
 
