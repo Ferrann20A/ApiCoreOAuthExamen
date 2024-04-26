@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCoreOAuthExamen", "ApiCoreOAuthExamen\ApiCoreOAuthExamen.csproj", "{094928D3-CABA-49DC-8163-BC6B53983DED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{094928D3-CABA-49DC-8163-BC6B53983DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094928D3-CABA-49DC-8163-BC6B53983DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094928D3-CABA-49DC-8163-BC6B53983DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094928D3-CABA-49DC-8163-BC6B53983DED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6CE0B09-1F3D-4B3E-8DBF-AB5C81A29C73}
+	EndGlobalSection
+EndGlobal
