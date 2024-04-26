@@ -4,17 +4,25 @@ using ApiCoreOAuthExamen.Helpers;
 using ApiCoreOAuthExamen.Repositories;
 using ApiCoreOAuthExamen.Data;
 using Microsoft.EntityFrameworkCore;
+using Azure.Security.KeyVault.Secrets;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-HelperOAuth helper = new HelperOAuth(builder.Configuration);
+
+
+SecretClient secretClient = builder.Services.BuildServiceProvider().GetService<SecretClient>();
+
+HelperOAuth helper = new HelperOAuth(secretClient);
 builder.Services.AddSingleton<HelperOAuth>(helper);
 
 builder.Services.AddAuthentication(helper.GetAuthenticationSchema())
     .AddJwtBearer(helper.GetJwtBearerOptions());
 
-string connectionString = builder.Configuration.GetConnectionString("SqlAzure");
+KeyVaultSecret secretSqlAzure = await secretClient.GetSecretAsync("SqlAzure");
+
+//string connectionString = builder.Configuration.GetConnectionString("SqlAzure");
+string connectionString = secretSqlAzure.Value;
 //Añadir la inyeccion del repo y del context
 builder.Services.AddTransient<RepositoryCubos>();
 builder.Services.AddDbContext<CubosContext>
